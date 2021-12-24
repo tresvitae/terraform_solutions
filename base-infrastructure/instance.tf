@@ -15,6 +15,25 @@ resource "aws_instance" "example" {
     volume_type           = "gp2"
     delete_on_termination = true
   }
+
+  provisioner "file" {
+    source      = "scripts/nginx.sh"
+    destination = "/tmp/nginx.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/nginx.sh",
+      "sudo sed -i -e 's/\r$//' /tmp/nginx.sh",  # Remove the spurious CR characters.
+      "sudo /tmp/nginx.sh",
+    ]
+  }
+  connection {
+    host        = self.public_ip
+    type        = "ssh"
+    user        = var.INSTANCE_USERNAME
+    private_key = file("${var.PUBLIC_KEY}.pem")
+  }
 }
 
 resource "aws_ebs_volume" "ebs-volume-1" {

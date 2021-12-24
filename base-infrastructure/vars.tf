@@ -24,3 +24,7 @@ variable "PUBLIC_KEY" {
 variable "INSTANCE_DEVICE_NAME" {
   default = "/dev/xvdh"
 }
+
+variable "INSTANCE_USERNAME" {
+  default = "ubuntu"
+}
