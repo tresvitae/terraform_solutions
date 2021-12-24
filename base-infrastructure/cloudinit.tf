@@ -12,7 +12,7 @@ data "template_file" "shell-script" {
   }
 }
 
-data "template_cloudinit_config" "cloudinit-example" {
+data "cloudinit_config" "cloudinit-example" {
   gzip          = false
   base64_encode = false
 

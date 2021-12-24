@@ -8,7 +8,7 @@ resource "aws_instance" "example" {
   subnet_id              = aws_subnet.main-public-1.id
   vpc_security_group_ids = [aws_security_group.allow-ssh.id]
   key_name               = data.aws_key_pair.softserve.key_name
-  user_data              = data.template_cloudinit_config.cloudinit-example.rendered
+  user_data              = data.cloudinit_config.cloudinit-example.rendered
 
   root_block_device {
     volume_size           = 17
