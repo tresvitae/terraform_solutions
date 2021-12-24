@@ -18,3 +18,6 @@ df -h
 umount data
 mount data
 ```
+
+## Check Route 53
+host -t MX tresvitae.tk ns-....awsdns-...org
