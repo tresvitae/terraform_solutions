@@ -2,7 +2,8 @@
 
 * [EC2 Linux Ubuntu](ec2-linux/instance.tf)
 * [EC2 Windows](ec2-windows/instance.tf)
-* [Base Infrastructure](base-infrastructure/instance.tf)
+* [Base Infrastructure](base-infrastructure/base.md)
+* [High Infrastructure](high-infrastructure/high.md)
 * [Database Infrastructure](rds/rds.md)
 * [IAM](iam/iam.md)
 * [S3](s3/s3.md)
