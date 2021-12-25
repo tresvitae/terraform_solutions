@@ -4,6 +4,8 @@
 * [EC2 Windows](ec2-windows/instance.tf)
 * [Base Infrastructure](base-infrastructure/instance.tf)
 * [Database Infrastructure](rds/rds.md)
+* [IAM](iam/iam.md)
+
 
 
 terraform:
