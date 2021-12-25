@@ -5,7 +5,7 @@
 * [Base Infrastructure](base-infrastructure/instance.tf)
 * [Database Infrastructure](rds/rds.md)
 * [IAM](iam/iam.md)
-
+* [S3](s3/s3.md)
 
 
 terraform:
