@@ -9,7 +9,7 @@
 * [S3](s3/s3.md)
 * [Elastibeanstalk](elasticbeanstalk/elasticbeanstalk.md)
 * [Multi Environments](multi-env/env.md)
-
+* [AWS Codepipeline](codepipeline/steps.md)
 
 
 terraform:
