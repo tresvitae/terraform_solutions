@@ -11,7 +11,7 @@
 * [Multi Environments](multi-env/env.md)
 * [AWS Codepipeline](codepipeline/steps.md)
 * [ECS&ELB Modules](modules/steps.md)
-
+* [Cloud-Init](cloud-init/steps.md)
 
 terraform:
 apply/destroy - 
