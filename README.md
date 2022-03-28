@@ -12,6 +12,7 @@
 * [AWS Codepipeline](codepipeline/steps.md)
 * [ECS&ELB Modules](modules/steps.md)
 * [Cloud-Init](cloud-init/steps.md)
+* [Packer](packer/steps.md)
 
 terraform:
 apply/destroy - 
