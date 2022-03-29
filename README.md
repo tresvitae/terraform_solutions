@@ -13,6 +13,7 @@
 * [ECS&ELB Modules](modules/steps.md)
 * [Cloud-Init](cloud-init/steps.md)
 * [Packer](packer/steps.md)
+* [CRUD with Providers](crud-provider/crud.md)
 
 terraform:
 apply/destroy - 
