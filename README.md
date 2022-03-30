@@ -14,6 +14,7 @@
 * [Cloud-Init](cloud-init/steps.md)
 * [Packer](packer/steps.md)
 * [CRUD with Providers](crud-provider/crud.md)
+* [S3 Website](s3-website/s3web.md)
 
 terraform:
 apply/destroy - 
