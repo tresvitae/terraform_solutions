@@ -16,6 +16,7 @@
 * [CRUD with Providers](crud-provider/crud.md)
 * [S3 Website](s3-website/s3web.md)
 * [Terraform State Logs Imports](state&logs&imports/info.md)
+* [Resource Dependencies](dependencies/dependson.md)
 
 terraform:
 apply/destroy - 
