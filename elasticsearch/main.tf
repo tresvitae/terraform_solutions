@@ -8,10 +8,10 @@ module "elasticsearch" {
   source = "./modules/elasticsearch"
 
   aws_region = var.aws_region
-  tags       = var.tags
-
+  tags = var.tags
+  
   # Security
-  my_public_ip          = var.my_public_ip
+  my_public_ip          = var.my_public_ip # "YOUR IP"
   encryption_kms_key_id = module.security.elasticsearch_kms_key_id
 
   # Elasticsearch
