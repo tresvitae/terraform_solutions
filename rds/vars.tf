@@ -21,12 +21,12 @@ variable "AMIS" {
 }
 
 variable "PUBLIC_KEY" {
-  type = string
+  type    = string
   default = "softserve"
 }
 
 variable "RDS_USERNAME" {
-  type = string
+  type    = string
   default = "admin"
 }
 

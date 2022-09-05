@@ -1,4 +1,4 @@
-resource "aws_security_group" "instance-sg" {
+resource "aws_security_group" "instance_sg" {
   vpc_id      = aws_vpc.main.id
   name        = "allow-ssh"
   description = "SG allows ssh and all egress traffic"
@@ -22,7 +22,7 @@ resource "aws_security_group" "instance-sg" {
   }
 }
 
-resource "aws_security_group" "allow-mariadb" {
+resource "aws_security_group" "allow_mariadb" {
   vpc_id      = aws_vpc.main.id
   name        = "allow-mariadb"
   description = "allow-mariadb"
@@ -31,7 +31,7 @@ resource "aws_security_group" "allow-mariadb" {
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = [aws_security_group.instance-sg.id]
+    security_groups = [aws_security_group.instance_sg.id]
   }
 
   egress {
