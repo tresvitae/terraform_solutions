@@ -33,3 +33,15 @@ variable "vault_transit_private_ip" {
 variable "vault_zip_file" {
   default = "https://releases.hashicorp.com/vault/1.15.1/vault_1.15.1_linux_amd64.zip"
 }
+
+variable "vault_server_names" {
+  description = "Names of the Vault nodes that will join the cluster"
+  type        = list(string)
+  default     = ["vault_2", "vault_3", "vault_4"]
+}
+
+variable "vault_server_private_ips" {
+  description = "The private IPs of the Vault nodes that will join the cluster"
+  type        = list(string)
+  default     = ["10.0.101.22", "10.0.101.23", "10.0.101.24"]
+}

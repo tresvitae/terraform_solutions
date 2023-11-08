@@ -15,6 +15,23 @@ resource "aws_iam_role_policy" "vault-transit" {
   policy = data.aws_iam_policy_document.vault-transit.json
 }
 
+# Vault Server IAM Config
+resource "aws_iam_instance_profile" "vault-server" {
+  name = "${var.environment_name}-vault-server-instance-profile"
+  role = aws_iam_role.vault-server.name
+}
+
+resource "aws_iam_role" "vault-server" {
+  name               = "${var.environment_name}-vault-server-role"
+  assume_role_policy = data.aws_iam_policy_document.assume-role.json
+}
+
+resource "aws_iam_role_policy" "vault-server" {
+  name   = "${var.environment_name}-vault-server-role-policy"
+  role   = aws_iam_role.vault-server.id
+  policy = data.aws_iam_policy_document.vault-server.json
+}
+
 // Data Sources
 data "aws_iam_policy_document" "assume-role" {
   statement {
@@ -31,8 +48,41 @@ data "aws_iam_policy_document" "assume-role" {
 data "aws_iam_policy_document" "vault-transit" {
   statement {
     sid       = "1"
-    effect     = "Allow"
+    effect    = "Allow"
     actions   = ["ec2:DescribeInstances"]
+    resources = ["*"]
+  }
+}
+
+data "aws_iam_policy_document" "vault-server" {
+  statement {
+    sid       = "1"
+    effect    = "Allow"
+    actions   = ["ec2:DescribeInstances"]
+    resources = ["*"]
+  }
+
+  statement {
+    sid    = "VaultAWSAuthMethod"
+    effect = "Allow"
+    actions = [
+      "ec2:DescribeInstances",
+      "iam:GetInstanceProfile",
+      "iam:GetUser",
+      "iam:GetRole"
+    ]
+    resources = ["*"]
+  }
+
+  statement {
+    sid    = "EnableKMSForVaultAutoUnsealAndKMSForRaftSnapshotsForS3"
+    effect = "Allow"
+    actions = [
+      "kms:Encrypt",
+      "kms:Decrypt",
+      "kms:DescribeKey",
+      "kms:GenerateDataKey"
+    ]
     resources = ["*"]
   }
 }
