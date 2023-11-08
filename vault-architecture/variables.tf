@@ -11,10 +11,25 @@ variable "availability_zones" {
 # AWS EC2 Key Pair
 # @see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
 # SSH key name to access EC2 instances (should already exist) in the AWS Region
-variable "master-vault-key" {
+variable "vault_key-name" {
+  default = "X"
 }
 
 # Specify a name here to tag all instances
 variable "environment_name" {
   default = "dev"
+}
+
+variable "instance_type" {
+  default = "t2.micro"
+}
+
+variable "vault_transit_private_ip" {
+  description = "The private IP of the first Vault node for Auto Unsealing"
+  default     = "10.0.101.21"
+}
+
+# URL for Vault OSS binary
+variable "vault_zip_file" {
+  default = "https://releases.hashicorp.com/vault/1.15.1/vault_1.15.1_linux_amd64.zip"
 }

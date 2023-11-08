@@ -16,3 +16,30 @@ data "aws_ami" "ubuntu" {
 
   owners = ["099720109477"]
 }
+
+//--------------------------------------------------------------------
+// Master Key Encryption Provider instance
+
+resource "aws_instance" "vault-transit" {
+  ami                         = data.aws_ami.ubuntu.id
+  instance_type               = var.instance_type
+  subnet_id                   = module.vault_vpc.public_subnets[0]
+  key_name                    = var.vault_key-name
+  vpc_security_group_ids      = [aws_security_group.ssh.id]
+  associate_public_ip_address = true
+  private_ip                  = var.vault_transit_private_ip
+  iam_instance_profile        = aws_iam_instance_profile.vault-transit.id
+
+  user_data = templatefile("templates/userdata-vault-transit.tpl", {
+    tpl_vault_zip_file     = var.vault_zip_file
+    tpl_vault_service_name = "vault-${var.environment_name}"
+  })
+
+  tags = {
+    Name = "${var.environment_name}-vault-transit"
+  }
+
+  lifecycle {
+    ignore_changes = [ami, tags]
+  }
+}
