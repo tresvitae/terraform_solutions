@@ -11,7 +11,7 @@ variable "availability_zones" {
 # AWS EC2 Key Pair
 # @see https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html
 # SSH key name to access EC2 instances (should already exist) in the AWS Region
-variable "vault_key-name" {
+variable "vault_key_name" {
   default = "X"
 }
 

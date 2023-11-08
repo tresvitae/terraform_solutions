@@ -24,7 +24,7 @@ resource "aws_instance" "vault-transit" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
   subnet_id                   = module.vault_vpc.public_subnets[0]
-  key_name                    = var.vault_key-name
+  key_name                    = var.vault_key_name
   vpc_security_group_ids      = [aws_security_group.ssh.id]
   associate_public_ip_address = true
   private_ip                  = var.vault_transit_private_ip
@@ -52,7 +52,7 @@ resource "aws_instance" "vault-server" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
   subnet_id                   = module.vault_vpc.public_subnets[0]
-  key_name                    = var.vault_key-name
+  key_name                    = var.vault_key_name
   vpc_security_group_ids      = [aws_security_group.ssh.id]
   associate_public_ip_address = true
   private_ip                  = var.vault_server_private_ips[count.index]
