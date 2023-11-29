@@ -11,3 +11,11 @@ All configuration within Vault
 Supports failover and multi-cluster replication
 Eliminates additional network requests
 Lowers complexity when diagnosing issues (leading to faster time to recovery)
+
+
+# IMPROVE
+- userdata-vault-server.tpl file
+- S3 snapshots
+- autounseal
+- use policy in vault/
+- 
